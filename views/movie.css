@@ -1,0 +1,57 @@
+.divi
+{
+font-family: 'Oswald', sans-serif;
+text-shadow:rgba(234,12,22,0.5);
+color: #91ff00;
+margin-top: 5%;
+text-align: center;
+/*font-size:4em;*/
+
+}
+
+.bodi
+{
+background-image: url(https://s2982.pcdn.co/wp-content/uploads/2020/03/poetry-poem-pen-writing.jpg) ; 
+/* background:brown; */
+width: 100vw;
+background-color: rgb(255, 81, 0);
+height: 100vh; 
+background-size: 100% 100%;
+background-repeat: no-repeat;
+position: relative;
+margin: 0px;
+}
+.divi h1
+{
+    text-shadow: 0px 4px 3px red;
+}
+.box { 
+    padding-top:40px; 
+    width: 300px; 
+    height: 300px; 
+    border: 5px solid green; 
+    margin: 15px;
+    margin-left: 20%; 
+    text-align:center; 
+    font-size:20px; 
+    font-weight:bold; 
+    color:black;
+     
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+   
+} 
+#form
+{
+    width: 100vw;
+    background-color: rgb(255, 81, 0);
+    height: 100vh; 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    margin: 0px;
+
+
+
+
+}

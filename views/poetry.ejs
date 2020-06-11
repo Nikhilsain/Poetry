@@ -1,0 +1,68 @@
+<%- include('partials/header.ejs');%>
+<nav class="navbar navbar-default" id="nav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">About</a></li>
+        
+      </ul>
+      <form class="navbar-form navbar-left" >
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search user">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <%    if(!currentuser){ %>
+        <li><a href="/register">Sign up <i class="fa fa-user-plus"></i></a></li>
+        <li class="dropdown">
+          <a href="/login" >login <i class="fa fa-user"></i></span></a>
+         
+        </li>
+        <% }else {%>
+        <li class="dropdown">
+          <a href="/logout" >logout <i class="fa fa-user"></i></span></a>
+         
+        </li>
+        <%    } %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+          <h1>Welcome to the World of poetry</h1>
+       <p><a href="/poetry/new" class="btn btn-primary">Something Creative in Your Mind</a></p>
+        </div>
+    </header>
+        <div class="row" style="display: flex; flex-wrap: wrap;">
+<% Poems.forEach(function(Poem){ %>
+   <div  class="col-lg-4 col-md-6 col-sm-6 col-xs-12" id="box1">
+    
+           <div style="background-image: url(<%=Poem.bgtheme%>);" class="box">
+              
+             <%=Poem.poem%>
+             
+           </div>
+           <a href="/poetry/<%=Poem._id%>" class="btn btn-primary">More Info</a>
+    
+   </div> 
+<% }) %>
+</div>
+</div>
+<%- include('partials/footer.ejs');%>
