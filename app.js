@@ -4,6 +4,7 @@ var express = require("express"),
      mongoose = require("mongoose"),
      passport = require("passport"),
      LocalStrategy = require("passport-local"),
+      stringify = require('json-stringify-safe'),
      Poem     =  require("./models/poems"),    
      Comment = require("./models/comments"),
      User   = require("./models/user");
@@ -32,21 +33,16 @@ passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
-// Poem.create({
-//     poem:"Johny Johny yes papa"
-//        },function(err,poem){
-//            if(err)
-//            {
-//                console.log(err);
-//            }
-//            else
-//            {    console.log("New Poem");
-//                console.log(poem)
-//            }
-//        })
+
+// app.use(function(req,res,next){
+//    res.locals.currentuser = req.user;
+//    next();
+// });
+
 
 app.get("/", function(req,res){
     res.render("home",{currentuser:req.user});
+    //console.log(currentuser);
 });
 
 app.get("/poetry",function(req,res){
@@ -62,14 +58,18 @@ app.get("/poetry",function(req,res){
 });
 
 app.post("/poetry",isLoggedIn,function(req,res){
-    var newPoem = {poem:req.body.Poem,bgtheme:req.body.bgcolor}
+  //  console.log(req.user.username)
+    var newPoem = {poem:req.body.Poem,bgtheme:req.body.bgcolor,writer:req.user.username}
     
-  console.log(req.body.bgcolor);
+     
     Poem.create(newPoem,function(err,newPoem){
         if(err){
             console.log(err);
         }
         else{
+            req.user.posts.push(newPoem);
+            req.user.save();
+            console.log(req.user.posts)
             res.redirect("/poetry");
         }
     })
@@ -101,7 +101,8 @@ app.post("/poetry/:id/comments" ,isLoggedIn, function(req,res){
          else{
              //res.send("hello")
              //console.log(req.body.comment)
-             var newcomment = {text:req.body.comment}
+             var newcomment = {text:req.body.comment,author:req.user.username}
+             //console.log(req.user.username);
              Comment.create(newcomment,function(err,Newcomment){
                  if(err){
                      console.log(err);
@@ -151,6 +152,36 @@ app.get("/logout",function(req,res){
     req.logout();
     res.redirect("/")
 })
+
+
+
+app.get("/myprofile",isLoggedIn,function(req,res){
+    User.findById(req.user.id).populate("posts").exec(function(err,foundUser){
+        if(err){
+            console.log(err);
+        }
+        else{
+
+            res.render("Myprofile",{currentuser:foundUser});
+        }
+    })
+})
+
+app.get("/find",function(req,res){
+    var name = req.query.finduser;
+    
+
+    User.find({username:name}).populate("posts").exec(function(err, users) {
+        
+       
+        
+       res.render("showuser",{users:users});
+        
+        
+     });
+    
+})
+
 
 function isLoggedIn(req,res,next){
     if(req.isAuthenticated()){

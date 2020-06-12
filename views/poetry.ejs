@@ -15,7 +15,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/myprofile">My profile <span class="sr-only">(current)</span></a></li>
         <li><a href="#">About</a></li>
         
       </ul>
@@ -47,8 +47,11 @@
     <header class="jumbotron">
         <div class="container">
           <h1>Welcome to the World of poetry</h1>
-       <p><a href="/poetry/new" class="btn btn-primary">Something Creative in Your Mind</a></p>
-        </div>
+    <div class="row">
+       <p class="col-sm-6"><a href="/poetry/new" class="btn btn-primary">Something Creative in Your Mind</a></p>
+       <p class="col-sm-6"><a href="/" style="float: left;" class="btn btn-primary">Go to Home page</a></p>
+    </div>   
+      </div>
     </header>
         <div class="row" style="display: flex; flex-wrap: wrap;">
 <% Poems.forEach(function(Poem){ %>
@@ -59,7 +62,7 @@
              <%=Poem.poem%>
              
            </div>
-           <a href="/poetry/<%=Poem._id%>" class="btn btn-primary">More Info</a>
+           <a href="/poetry/<%=Poem._id%>" class="btn btn-primary" style="margin-left: 45%;">More Info</a>
     
    </div> 
 <% }) %>

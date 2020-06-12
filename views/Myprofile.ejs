@@ -1,0 +1,20 @@
+<%- include('partials/header.ejs');%>
+<!-- <h1><%=currentuser.posts%></h1> -->
+
+
+<div class="row" style="display: flex; flex-wrap: wrap;">
+    <% currentuser.posts.forEach(function(Poem){ %>
+       <div  class="col-lg-4 col-md-6 col-sm-6 col-xs-12" id="box1">
+        
+               <div style="background-image: url(<%=Poem.bgtheme%>);" class="box">
+                  
+                 <%=Poem.poem%>
+                 
+               </div>
+               <a href="/poetry/<%=Poem._id%>" class="btn btn-primary">More Info</a>
+        
+       </div> 
+    <% }) %>
+    </div>
+
+    <%- include('partials/footer.ejs');%>

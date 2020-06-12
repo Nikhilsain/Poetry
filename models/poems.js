@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 var poetrySchema = new mongoose.Schema({
     poem : String,
     bgtheme : String,
+    writer:String,
     likes:Number,
     comments:[
         {
