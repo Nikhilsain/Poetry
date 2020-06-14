@@ -2,7 +2,8 @@
 <!-- <h1><%=currentuser.posts%></h1> -->
 
 
-<div class="row" style="display: flex; flex-wrap: wrap;">
+<div class="row" style="display: flex; flex-wrap: wrap;height: 100vh; 
+background-size: 100% 100%;width: 100vw;">
     <% currentuser.posts.forEach(function(Poem){ %>
        <div  class="col-lg-4 col-md-6 col-sm-6 col-xs-12" id="box1">
         
@@ -11,7 +12,7 @@
                  <%=Poem.poem%>
                  
                </div>
-               <a href="/poetry/<%=Poem._id%>" class="btn btn-primary">More Info</a>
+               <a href="/poetry/<%=Poem._id%>" class="btn btn-primary" style="margin-bottom: 3px;margin-left: 45%;">More Info</a>
         
        </div> 
     <% }) %>

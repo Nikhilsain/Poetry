@@ -4,7 +4,7 @@ var express = require("express"),
      mongoose = require("mongoose"),
      passport = require("passport"),
      LocalStrategy = require("passport-local"),
-      stringify = require('json-stringify-safe'),
+     stringify = require('json-stringify-safe'),
      Poem     =  require("./models/poems"),    
      Comment = require("./models/comments"),
      User   = require("./models/user");
@@ -59,7 +59,11 @@ app.get("/poetry",function(req,res){
 
 app.post("/poetry",isLoggedIn,function(req,res){
   //  console.log(req.user.username)
-    var newPoem = {poem:req.body.Poem,bgtheme:req.body.bgcolor,writer:req.user.username}
+
+  var strPoetry = req.body.Poem;
+  
+
+    var newPoem = {poem:strPoetry,bgtheme:req.body.bgcolor,writer:req.user.username}
     
      
     Poem.create(newPoem,function(err,newPoem){
@@ -69,7 +73,7 @@ app.post("/poetry",isLoggedIn,function(req,res){
         else{
             req.user.posts.push(newPoem);
             req.user.save();
-            console.log(req.user.posts)
+            
             res.redirect("/poetry");
         }
     })
