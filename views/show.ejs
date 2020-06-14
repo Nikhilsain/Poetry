@@ -3,7 +3,7 @@
 <script>
     function likecount(){
         var x =0;x++;
-        console.log(x);
+        
     }
 </script>
  
@@ -28,6 +28,7 @@
 
 <div class="container" style="margin: 30px;">
     <i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"  onclick="likecount()"></i>
+    <%Poem.likes=1%>
     <%=Poem.likes%>
     <form action="/poetry/<%=Poem._id%>/comments" method="POST">
       <div class="comment-form"> <input type="text" name="comment" placeholder="Add a New Comment"></div>

@@ -9,7 +9,9 @@ background-size: 100% 100%;width: 100vw;">
         
                <div style="background-image: url(<%=Poem.bgtheme%>);" class="box">
                   
-                 <%=Poem.poem%>
+                <strong style="overflow-wrap: break-word;">
+                  <p style="white-space:pre-wrap;"><%-Poem.poem%></p>
+               </strong>     
                  
                </div>
                <a href="/poetry/<%=Poem._id%>" class="btn btn-primary" style="margin-bottom: 3px;margin-left: 45%;">More Info</a>
