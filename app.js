@@ -169,6 +169,7 @@ app.get("/likeme/:id",isLoggedIn,function(req,res){
               }); 
             //  console.log(founduser)
                 if(founduser){
+                    
                     res.redirect("/poetry/"+req.params.id);
                 }
                 else{

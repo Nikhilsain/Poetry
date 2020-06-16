@@ -6,7 +6,7 @@
     <h3>Created by <strong><%= Poem.writer%></strong></h3>
  </div>
 
- <div  class="col-lg-4 col-md-6 col-sm-6 col-xs-12" class="box">
+ <div>
     
     <div style="background-image: url(<%=Poem.bgtheme%>);" class="box">
        
@@ -30,11 +30,13 @@
 
 <div class="container" style="margin: 30px;">
    
-    
+    <div class="row">
+        
     <form action="/poetry/<%=Poem._id%>/comments" method="POST">
-      <div class="comment-form"> <input type="text" name="comment" placeholder="Add a New Comment"></div>
-         <button type="submit" style="margin: 30px;float: left;">Comment</button>
+    <div class="col-xs-8">  <div class="comment-form"> <input type="text" name="comment" placeholder="Add a New Comment"></div></div>
+     <div class="col-xs-4"> <button type="submit" style="margin: 30px;float: left;"><i class="fa fa-paper-plane" aria-hidden="false"></i></button> </div>
     </form>
+    </div>
     
 </div>
  <div class="container">
