@@ -3,7 +3,8 @@ var poetrySchema = new mongoose.Schema({
     poem : String,
     bgtheme : String,
     writer:String,
-    likes:Number,
+    likes:Array,
+    like:Number,
     comments:[
         {
           type:  mongoose.Schema.Types.ObjectId,

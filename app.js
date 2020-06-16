@@ -92,7 +92,7 @@ app.get("/poetry/:id",function(req,res){
             console.log(err);
         }
         else{
-            res.render("show",{Poem:foundPoem});
+            res.render("show",{Poem:foundPoem,currentuser:req.user});
         }
     })
 })
@@ -157,7 +157,42 @@ app.get("/logout",function(req,res){
     res.redirect("/")
 })
 
+app.get("/likeme/:id",isLoggedIn,function(req,res){
 
+    
+           
+             Poem.findById(req.params.id,function(err,foundPoem){
+                 
+               // console.log(req.user.username)
+               var founduser = foundPoem.likes.find(function(element) { 
+                return element === req.user.username; 
+              }); 
+            //  console.log(founduser)
+                if(founduser){
+                    res.redirect("/poetry/"+req.params.id);
+                }
+                else{
+                   // console.log("hii")
+                    if(foundPoem.like){
+                    foundPoem.like+=1;
+                    }
+                    else
+                    {
+                        
+                    foundPoem.like=1;
+                    }
+                    foundPoem.likes.push(req.user.username);
+                    foundPoem.save();
+                    res.redirect("/poetry/"+req.params.id);
+                }
+                     
+             })    
+                
+          
+        
+        
+  
+})
 
 app.get("/myprofile",isLoggedIn,function(req,res){
     User.findById(req.user.id).populate("posts").exec(function(err,foundUser){
