@@ -229,6 +229,18 @@ app.get("/find",function(req,res){
     
 })
 
+app.get("/trending",function(req,res){
+    Poem.find().sort("-like").exec(function(err,Poems){
+        if(err){
+            console.log(err);
+        }
+        else{
+            
+            
+            res.render("trending",{Poems:Poems,currentuser:req.user});
+        }
+    })
+})
 
 function isLoggedIn(req,res,next){
     if(req.isAuthenticated()){

@@ -45,13 +45,13 @@
      <h2>Comments:</h2>
  </div>
 <div class="container">
-<div class="jumbotron" style="box-shadow: 4px 4px black;background-color:mediumpurple;">
+<div class="jumbotron" style="box-shadow: 4px 4px black;background-color:mediumspringgreen;">
 <% Poem.comments.forEach(function(comments){ %>
-    <div style="width: 100%;height: 30%; box-shadow: 4px 4px mediumslateblue;overflow-wrap: break-word;">
+    <div style="width: 100%;height: 30%;font-style: italic; overflow-wrap: break-word;">
     <strong style="color: black;font-family: cursive;font-size: 10px>
         <p style="float: left;margin-right: 10px;"><%=comments.author%> (<%=comments.date%>)</p>
     </strong>   
-    <p style="color: rgb(205, 239, 255);"> <%=comments.text%> </p>
+    <p style="color:black;font-family: fantasy;font-size: 17px;"> <%=comments.text%><hr> </p>
     </div>
 <%})%>
 </div>
