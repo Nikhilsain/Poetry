@@ -22,7 +22,9 @@
 
 
 
-<a class="btn btn-success" href="/likeme/<%=Poem._id%>" style="margin-left: 20%;">Like</a>
+<a class="btn btn-success" href="/likeme/<%=Poem._id%>" style="margin-left: 20%;">
+    <i class="fa fa-thumbs-o-up" aria-hidden="false"></i>
+</a>
 <%=Poem.like%>
 <p></p>
 <a href="/poetry" class="btn btn-primary" style="margin-left: 20%;">Go back!</a>
@@ -43,14 +45,16 @@
      <h2>Comments:</h2>
  </div>
 <div class="container">
-<div class="jumbotron">
+<div class="jumbotron" style="box-shadow: 4px 4px black;background-color:mediumpurple;">
 <% Poem.comments.forEach(function(comments){ %>
-    
-    <strong>
-        <p style="float: left;margin-right: 10px;"><%=comments.author%>--></p>
+    <div style="width: 100%;height: 30%; box-shadow: 4px 4px mediumslateblue;overflow-wrap: break-word;">
+    <strong style="color: black;font-family: cursive;font-size: 10px>
+        <p style="float: left;margin-right: 10px;"><%=comments.author%> (<%=comments.date%>)</p>
     </strong>   
-    <p> <%=comments.text%> </p>
+    <p style="color: rgb(205, 239, 255);"> <%=comments.text%> </p>
+    </div>
 <%})%>
 </div>
 </div>
+
 <%- include('partials/footer.ejs');%>

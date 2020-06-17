@@ -92,6 +92,7 @@ app.get("/poetry/:id",function(req,res){
             console.log(err);
         }
         else{
+            
             res.render("show",{Poem:foundPoem,currentuser:req.user});
         }
     })
@@ -105,7 +106,12 @@ app.post("/poetry/:id/comments" ,isLoggedIn, function(req,res){
          else{
              //res.send("hello")
              //console.log(req.body.comment)
-             var newcomment = {text:req.body.comment,author:req.user.username}
+             var today = new Date();
+             var dd = String(today.getDate()).padStart(2, '0');
+             var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+             var yyyy = today.getFullYear();
+             today = mm + '/' + dd + '/' + yyyy;
+             var newcomment = {text:req.body.comment,author:req.user.username,date:today}
              //console.log(req.user.username);
              Comment.create(newcomment,function(err,Newcomment){
                  if(err){
@@ -182,6 +188,7 @@ app.get("/likeme/:id",isLoggedIn,function(req,res){
                         
                     foundPoem.like=1;
                     }
+                    
                     foundPoem.likes.push(req.user.username);
                     foundPoem.save();
                     res.redirect("/poetry/"+req.params.id);

@@ -54,11 +54,15 @@
 </nav>
 
 <div class="container">
-    <header class="jumbotron">
+    <header class="jumbotron" style="background-color:lawngreen;">
         <div class="container">
-          <h1>Welcome to the World of poetry</h1>
+          <h1 style="float: left;">Welcome to the World of poetry <i class="fa fa-pencil-square-o" aria-hidden="true"></i></h1>
     <div class="row">
-       <p class="col-sm-6"><a href="/poetry/new" class="btn btn-primary">Something Creative in Your Mind</a></p>
+       <p class="col-sm-6"><a href="/poetry/new" class="btn btn-primary">Something Creative in Your Mind 
+       </a>
+       
+
+      </p>
        <p class="col-sm-6"><a href="/" style="float: left;" class="btn btn-primary">Go to Home page</a></p>
     </div>   
       </div>
@@ -67,7 +71,7 @@
 <% Poems.forEach(function(Poem){ %>
   
    <div  class="col-lg-4 col-md-6 col-sm-6 col-xs-12" >
-    
+             
            <div style="background-image: url(<%=Poem.bgtheme%>);" class="box">
               
             
