@@ -9,13 +9,8 @@
         <%=users[0].username%> profile
     </h2>
     <hr style="width: 80%;">
-<div class="row" style="display: flex; flex-wrap: wrap;height: 100vh; 
-    background-size: 100% 100%;width: 100vw;">
-
-  
-
-  
-    <% users[0].posts.forEach(function(Poem){ %>
+<div class="row" style="display: flex; flex-wrap: wrap;background-size:100% 100%;width: 100vw;">
+     <% users[0].posts.forEach(function(Poem){ %>
        <div  class="col-lg-4 col-md-6 col-sm-6 col-xs-12" id="box1">
         
                <div style="background-image: url(<%=Poem.bgtheme%>);" class="box">

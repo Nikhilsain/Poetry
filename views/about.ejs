@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column1 {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.column2 {
+    float: left;
+  width: 64.66%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="about-section">
+  <h1>About Us Page</h1>
+  <p>Here You can write your Poetry</p>
+  <p>Poets are singled out among larger group of writers here</p>
+</div>
+
+<h2 style="text-align:left;margin-left:20px ;">About developer</h2>
+<div class="row">
+  <div class="column1">
+    <div class="card">
+      <img src="mypic.jpg" alt="Jane" style="width:100%">
+      <div class="container">
+        <h2>Nikhil Sain</h2>
+        <p class="title">CEO & Founder</p>
+        <p>Nikhil is a web-developer and a competitive coder.
+             Presently ,he is pursuing B.Tech at MNIT(NIT) Jaipur
+             in Computer Science & engineering.He is the developer of worldofPoetry.</p>
+        <p>jane@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  <div class="column2" style="box-shadow: 4px 4px grey; background-color: blanchedalmond;">
+      <h2 style="text-align: center;">How to use</h2>
+      <ul>
+          <li><a href="/myprofile">My profile</a>-here you can see your posts you have done so far</li>
+          <li><a href="/trending">Trending</a>-Here you can see Trending posts in this site according to likes</li>
+          <li>search user-Here you can see anyone's profile by his/her username (remember username must be exact)</li>
+          <li><a href="/register">sign up</a>-Here you can register to this site</li>
+          <li>view some Poetry - here you can list out some poetry </li>
+          <li>
+              More Info - Here you can read comments give thumbs up if you like it <i class="fa fa-smile-o" aria-hidden="false"></i>
+          </li>
+      </ol>
+
+  </div>
+</div>
+
+</body>
+</html>
