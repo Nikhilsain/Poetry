@@ -8,7 +8,7 @@ var express = require("express"),
      Poem     =  require("./models/poems"),    
      Comment = require("./models/comments"),
      User   = require("./models/user");
-
+ 
 
 mongoose.connect("mongodb://localhost:27017/Poetry" ,{useNewUrlParser:true, useUnifiedTopology: true });
 
@@ -245,12 +245,47 @@ app.get("/trending",function(req,res){
 app.get("/about",function(req,res){
      res.render("about")
 })
+
+app.post("/createimage",isLoggedIn, function(req,res){
+    console.log(req.body.image)
+    console.log(req.body.image)
+   req.user.image = req.body.image;
+   
+    req.user.save();
+    res.redirect("/myprofile")
+})
+
+//============
+//destroy routes
+//=============
+app.post("/Poem/:id",isLoggedIn, function(req,res){
+    
+    Poem.findById(req.params.id,function(err,foundpoem){
+        // console.log(req.user.username,foundpoem.writer)
+        if(req.user.username === foundpoem.writer ){
+            
+        Poem.findByIdAndDelete(req.params.id,function(err){
+             
+             res.redirect("/poetry")
+          })
+      }
+      else{
+          res.redirect("/poetry/"+req.params.id);
+      }
+
+    })
+   
+})
+
+
 function isLoggedIn(req,res,next){
     if(req.isAuthenticated()){
          return next();
     }
     res.redirect("/login")
 }
+
+
 app.listen(3000,function(){
     console.log("this server strats");
 });
