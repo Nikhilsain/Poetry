@@ -8,7 +8,16 @@ text-align: center;
 /*font-size:4em;*/
 
 }
+.backshow 
+{
+  background-image: url(https://images.all-free-download.com/images/graphiclarge/colorful_bubble_background_02_vector_159304.jpg);
+  /* background-color: grey; */
 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  
+}
 .bodi
 {
 /* background-image: url(https://echosverts.com/wp-content/uploads/2018/02/bookblock-417570.jpg) ;  */
@@ -29,10 +38,10 @@ margin: 0px;
     padding-top:0px; 
     width: 300px; 
     height: 300px; 
-    border:2px solid orange;
+    border:2px solid black;
     margin: 15px;
     margin:15px auto; 
-    box-shadow: 8px 8px 4px grey;
+    box-shadow: 4px 4px 4px green;
     
     font-weight:bold; 
     color:black;
@@ -41,6 +50,7 @@ margin: 0px;
     background-repeat: no-repeat;
    
 } 
+
 #form
 {
     width: 300px;
@@ -49,7 +59,7 @@ margin: 0px;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     position: relative;
-    margin: 0px;
+    /* margin-left: 30%; */
       
 
 

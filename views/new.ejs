@@ -2,12 +2,13 @@
 <%- include('partials/header.ejs');%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="container">
-<div class="container">
+<div class="backshow">
+<div class="container" style="margin: 10px auto 10px auto;">
     <header class="jumbotron" style="color:goldenrod; text-align: center;">
       <h1>Create a New Poem!!!</h1>
     </header>
 </div>
+<div class="container" style="width: 50%;">
 <script>
     function colorbg(){
         var x = document.getElementById("scripts");
@@ -17,7 +18,7 @@
          document.getElementById("default").value = bgcolor;
   }
 </script>
-<select onclick="colorbg()" id="scripts" style="margin-left: 140px;">
+<select onclick="colorbg()" id="scripts">
     
     <option value="">change theme</option>
     <option  value= https://images.all-free-download.com/images/graphicthumb/nostalgic_paper_picture_series_26_169273.jpg>handable</option>
@@ -28,18 +29,19 @@
 </select> <br>
 
 
-<form action="/poetry" method="POST">
+<form action="/poetry" method="POST" class="backshow">
    
     
    
-    <p ><label for="form" ><h3> Poem Writing...</h3></label>
-        <textarea id="form"  name="Poem"  style="background-color: whitesmoke;; color:black;resize: none; font-weight: 700;margin: 20px auto 20px auto;"  maxlength="240"  placeholder="Something in your Creative Mind" required></textarea>
+    <p ><label for="form" ><h3 style="color:greenyellow;"> Poem Writing...</h3></label>
+        <textarea id="form"  name="Poem"  style="background-color: whitesmoke;; color:black;resize: none; font-weight: 700;"  maxlength="240"  placeholder="Something in your Creative Mind" required></textarea>
     </p>
         
     <input type="text" id = "default" name = "bgcolor" style="display: none;">
 
         <!-- <input type="reset" value="Reset" class="btn btn-danger" style="margin-bottom: 30px;"> -->
-    <input type="submit" class="btn btn-success" style="margin-left: 30px; margin-bottom: 30px;">
+    <input type="submit" class="btn btn-success" style="margin-bottom: 10px;" >
 </form>
+</div>
 </div>
 <%- include('partials/footer.ejs');%>

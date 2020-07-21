@@ -6,8 +6,8 @@
 <% if(!users[0]){%>
   <h2 >No such User...</h2>
   <% } else {%>
-
-    <h2 style="margin-left: 45%;">
+  <div style="background-color: black;">
+    <h2 style="margin-left: 45%;color: whitesmoke;">
         <%=users[0].username%> profile
     </h2>
     <hr style="width: 80%;">
@@ -15,7 +15,7 @@
      <% users[0].posts.forEach(function(Poem){ %>
        <div  class="col-lg-4 col-md-6 col-sm-6 col-xs-12" id="box1">
         
-               <div style="background-image: url(<%=Poem.bgtheme%>);" class="box">
+               <div style="background-image: url(<%=Poem.bgtheme%>);background-color: whitesmoke;" class="box">
                   
                 <strong style="overflow-wrap: break-word;">
                   <p style="white-space:pre-wrap;"><%-Poem.poem%></p>
@@ -27,6 +27,6 @@
        </div> 
     <% }) %>
 </div>
-
+</div>
 <% } %>
     <%- include('partials/footer.ejs');%>
