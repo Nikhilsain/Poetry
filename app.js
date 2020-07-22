@@ -15,7 +15,7 @@ var express = require("express"),
 
      
 
-mongoose.connect("mongodb://localhost:27017/Poetry" ,{useNewUrlParser:true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://mongouser:mongo0987@poetry.xhouu.mongodb.net/<dbname>?retryWrites=true&w=majority" ,{useNewUrlParser:true, useUnifiedTopology: true });
 
 app.use(express.static("public"));    
 app.use(express.static(__dirname + "/views"));
