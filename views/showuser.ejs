@@ -8,13 +8,13 @@
   <% } else {%>
     <%if(users[0].img.data!=undefined){%>
 
-      <div style="width:20%; margin:10px auto;">
+      <div style="width:40%; margin:10px auto;">
       <img src="data:users[0]/<%=users[0].img.contentType%>;base64, 
            <%=users[0].img.data.toString('base64')%>" class="img-circle img-responsive center-block"> 
       </div>
   
   <%}else{%>
-    <div style="width:20%; margin:0 auto;">
+    <div style="width:40%; margin:0 auto;">
       <i class="fa fa-user fa-5x"></i> 
     </div>
       <%}%>
