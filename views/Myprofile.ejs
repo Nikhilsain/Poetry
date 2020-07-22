@@ -1,6 +1,38 @@
 <%- include('partials/header.ejs');%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<%if(currentuser.img.data!=undefined){%>
+
+    <div style="width:20%; margin:10px auto;">
+    <img src="data:currentuser/<%=currentuser.img.contentType%>;base64, 
+         <%=currentuser.img.data.toString('base64')%>" class="img-circle img-responsive center-block"> 
+    </div>
+
+<%}else{%>
+  <div style="width:20%; margin:0 auto;">
+    <i class="fa fa-user fa-5x"></i> 
+  </div>
+    <%}%>
+   
+    
+    
+<div style="width:20%; margin:0 auto;"> 
+   <form action="/upload_img" method="POST" enctype="multipart/form-data"> 
+      <div class="form-row">
+       
+       <div> 
+           <label for="image">Upload Image</label> 
+           <input type="file" id="image" 
+                  name="image" value="" required> 
+       </div> 
+       <div> 
+           <button type="submit" style="color: blue;margin-top: 7px;margin-bottom: 7px;">upload</button> 
+       </div> 
+   </form> 
+   </div>
+</div> 
+
+
 <!-- <script type="text/javascript">
    function showFileName() {
       var fil = document.getElementById("myFile");

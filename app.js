@@ -8,7 +8,12 @@ var express = require("express"),
      Poem     =  require("./models/poems"),    
      Comment = require("./models/comments"),
      User   = require("./models/user");
- 
+     var fs = require('fs'); 
+     var path = require('path'); 
+     var multer = require('multer'); 
+     require('dotenv/config'); 
+
+     
 
 mongoose.connect("mongodb://localhost:27017/Poetry" ,{useNewUrlParser:true, useUnifiedTopology: true });
 
@@ -18,6 +23,21 @@ app.use(express.static(__dirname + "/views/partials"))
 app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 
+//=================================
+var fs = require('fs'); 
+var path = require('path'); 
+var multer = require('multer'); 
+  
+var storage = multer.diskStorage({ 
+    destination: (req, file, cb) => { 
+        cb(null, 'uploads') 
+    }, 
+    filename: (req, file, cb) => { 
+        cb(null, file.fieldname + '-' + Date.now()) 
+    } 
+}); 
+  
+var upload = multer({ storage: storage }); 
 //======================
 //passport configuration
 
@@ -274,8 +294,24 @@ app.post("/Poem/:id",isLoggedIn, function(req,res){
       }
 
     })
+    
    
 })
+app.post('/upload_img',upload.single('image'), (req, res, next) => { 
+  
+    var obj = 
+        
+         { 
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)), 
+            contentType: 'image/png'
+        } 
+    
+   // console.log(obj);
+    req.user.img = obj;
+    console.log(req.user.img);
+    req.user.save();
+    res.redirect("/myprofile");
+}); 
 
 
 function isLoggedIn(req,res,next){

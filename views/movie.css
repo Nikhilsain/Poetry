@@ -51,6 +51,7 @@ margin: 0px;
    
 } 
 
+
 #form
 {
     width: 300px;
@@ -93,6 +94,7 @@ body {
     position: relative;
     text-align: center;
     padding-top: 40vh;
+    
   }
   #landing-header h1 {
     color: #fff;
