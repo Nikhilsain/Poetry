@@ -54,11 +54,6 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 
-// app.use(function(req,res,next){
-//    res.locals.currentuser = req.user;
-//    next();
-// });
-
 
 app.get("/", function(req,res){
     res.render("home",{currentuser:req.user});
